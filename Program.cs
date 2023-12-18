@@ -25,7 +25,7 @@ System.AppContext.BaseDirectory                                          = /home
 
             Console.WriteLine("Hello, World!");
 
-            var data = ReadExcelData<FinalItems>(filePath: @$"D:\repos\POCs\POC.ReadExcelFileToFlatClassObjectsData\test.xlsx");
+            var data = ReadExcelData<FinalItems>(filePath: @$"D:\Unwell\MedicinesFilterd03Dec2023.xlsx");
             int c = 0;
             foreach (var item in data)
             {
@@ -40,7 +40,7 @@ System.AppContext.BaseDirectory                                          = /home
 
             // Load the Excel file
             var workbook = new Aspose.Cells.Workbook(filePath);
-
+            //workbook.Save("Outputs.json");// to save excel to json you can use this
             // Access the desired worksheet
             var worksheet = workbook.Worksheets[sheetName];
 
