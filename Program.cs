@@ -9,13 +9,23 @@ using System.Text;
 
 namespace ConsoleAppExcelFromApi
 {
+    /*
+Path.GetDirectoryName(Process.GetCurrentProcess()?.MainModule?.FileName) = /usr/share/dotnet
+Path.GetDirectoryName(Environment.ProcessPath)                           = /usr/share/dotnet
+Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)          = /home/username/myproject/bin/Debug/net6.0
+typeof(SomeType).Assembly.Location                                       = /home/username/myproject/bin/Debug/net6.0
+Path.GetDirectoryName(Environment.GetCommandLineArgs()[0])               = /home/username/myproject/bin/Debug/net6.0
+AppDomain.CurrentDomain.BaseDirectory                                    = /home/username/myproject/bin/Debug/net6.0/
+System.AppContext.BaseDirectory                                          = /home/username/myproject/bin/Debug/net6.0/
+     */
     internal class Program
     {
         static void Main(string[] args)
         {
 
             Console.WriteLine("Hello, World!");
-            var data = ReadExcelData<FinalItems>(filePath: @"C:\Users\nammadhu\Downloads\Max\4 - Copy.xlsx");
+
+            var data = ReadExcelData<FinalItems>(filePath: @$"D:\repos\POCs\POC.ReadExcelFileToFlatClassObjectsData\test.xlsx");
             int c = 0;
             foreach (var item in data)
             {
